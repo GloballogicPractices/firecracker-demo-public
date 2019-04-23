@@ -6,13 +6,53 @@
             "value": "northeurope"
         },
         "networkInterfaceName": {
-            "value": "fc-poc270"
+            "value": "firecracker-poc522"
         },
         "networkSecurityGroupName": {
-            "value": "fc-poc-nsg"
+            "value": "firecracker-poc-nsg"
         },
         "networkSecurityGroupRules": {
-            "value": []
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                },
+                {
+                    "name": "HTTP",
+                    "properties": {
+                        "priority": 320,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "80"
+                    }
+                },
+                {
+                    "name": "HTTPS",
+                    "properties": {
+                        "priority": 340,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "443"
+                    }
+                }
+            ]
         },
         "subnetName": {
             "value": "default"
@@ -36,7 +76,7 @@
             ]
         },
         "publicIpAddressName": {
-            "value": "fc-poc-ip"
+            "value": "firecracker-poc-ip"
         },
         "publicIpAddressType": {
             "value": "Dynamic"
@@ -45,7 +85,7 @@
             "value": "Basic"
         },
         "virtualMachineName": {
-            "value": "fc-poc"
+            "value": "firecracker-poc"
         },
         "virtualMachineRG": {
             "value": "firecracker-poc"
@@ -57,9 +97,9 @@
             "value": "Standard_D2s_v3"
         },
         "adminUsername": {
-            "value": "fc-poc"
+            "value": "agn"
         },
-        "adminPassword": {
+        "adminPublicKey": {
             "value": null
         },
         "diagnosticsStorageAccountName": {
@@ -78,10 +118,10 @@
             "value": "Enabled"
         },
         "autoShutdownTime": {
-            "value": "19:00"
+            "value": "23:00"
         },
         "autoShutdownTimeZone": {
-            "value": "FLE Standard Time"
+            "value": "UTC"
         },
         "autoShutdownNotificationStatus": {
             "value": "Disabled"
